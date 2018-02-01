@@ -10,48 +10,50 @@ var config = {
 firebase.initializeApp(config);
 
 function showPlace(concepto, descripcion, horario, lugar) {
-    var $row = $("<div />").addClass("row");
-    var $col = $("<div />").addClass("col s12");
-    var $card = $("<div />").addClass("card");
-    var $cardImage = $("<div />").addClass("card-image");
-    var $cardContent = $("<div />").addClass("card-content");
-    var $cardAction = $("<div />").addClass("card-action");
-    var $map = $("<iframe />");
-    var $cardTitle = $("<span />").addClass("card-title teal darken-4");
-    var $cardDescription = $("<p />");
-    var $cardScheduleText = $("<p />");
-    var $cardSchedule = $("<strong />");
-    var $cardLink = $("<a />");
+  var $row = $("<div />").addClass("row");
+  var $col = $("<div />").addClass("col s12");
+  var $card = $("<div />").addClass("card");
+  var $cardImage = $("<div />").addClass("card-image");
+  var $cardContent = $("<div />").addClass("card-content");
+  var $cardAction = $("<div />").addClass("card-action");
+  var $map = $("<iframe />");
+  var $cardTitle = $("<span />").addClass("card-title teal darken-4");
+  var $cardDescription = $("<p />");
+  var $cardScheduleText = $("<p />");
+  var $cardSchedule = $("<strong />");
+  var $cardLink = $("<a />");
 
-    $map.attr("src", lugar);
-    $map.attr("width", "100%").attr("height", "450");
-    $map.attr("frameborder", "0").css("border", "0");
-    $map.attr("allowfullscreen", "true");
+  $map.attr("src", lugar);
+  $map.attr("width", "100%").attr("height", "450");
+  $map.attr("frameborder", "0").css("border", "0");
+  $map.attr("allowfullscreen", "true");
 
-    $cardTitle.text(concepto);
-    $cardDescription.text(descripcion);
-    $cardScheduleText.text("Horario:");
-    $cardSchedule.text(horario);
-    $cardLink.text("¿Cómo llego?");
+  $cardTitle.text(concepto);
+  $cardDescription.text(descripcion);
+  $cardScheduleText.text("Horario:");
+  $cardSchedule.text(horario);
+  $cardLink.text("¿Cómo llego?");
 
-    $cardScheduleText.append($cardSchedule);
-    $cardAction.append($cardLink);
-    $cardContent.append($cardDescription);
-    $cardContent.append($cardScheduleText);
-    $cardImage.append($map);
-    $cardImage.append($cardTitle);
+  $cardScheduleText.append($cardSchedule);
+  $cardAction.append($cardLink);
+  $cardContent.append($cardDescription);
+  $cardContent.append($cardScheduleText);
+  $cardImage.append($map);
+  $cardImage.append($cardTitle);
 
-    $card.append($cardImage);
-    $card.append($cardContent);
-    $card.append($cardAction);
+  $card.append($cardImage);
+  $card.append($cardContent);
+  $card.append($cardAction);
 
-    $col.append($card);
-    $row.append($col);
+  $col.append($card);
+  $row.append($col);
 
-    $("#lugares").append($row);
+  $("#lugares").append($row);
 }
 
 $(document).ready(function() {
+  $(".button-collapse").sideNav();
+
   $("#form").submit(function(e) {
     e.preventDefault();
 
@@ -75,7 +77,7 @@ $(document).ready(function() {
       });
   });
 
-  $("#login").click(function(e) {
+  $(".login").click(function(e) {
     e.preventDefault();
 
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -90,13 +92,13 @@ $(document).ready(function() {
         var user = result.user;
         // ...
         $("#location-form").removeClass("hide");
-        $("#login").addClass("hide");
-        $("#profile-photo").attr("src", user.photoURL);
-        $("#username").text(user.displayName);
-        $("#username")
+        $(".login").addClass("hide");
+        $(".profile-photo").attr("src", user.photoURL);
+        $(".username").text(user.displayName);
+        $(".username")
           .parents("li")
           .removeClass("hide");
-        $("#logout")
+        $(".logout")
           .parent()
           .removeClass("hide");
       })
@@ -113,7 +115,7 @@ $(document).ready(function() {
       });
   });
 
-  $("#logout").click(function(e) {
+  $(".logout").click(function(e) {
     e.preventDefault();
 
     firebase
@@ -122,11 +124,11 @@ $(document).ready(function() {
       .then(function() {
         // Sign-out successful.
         $("#location-form").addClass("hide");
-        $("#login").removeClass("hide");
-        $("#username")
+        $(".login").removeClass("hide");
+        $(".username")
           .parents("li")
           .addClass("hide");
-        $("#logout")
+        $(".logout")
           .parent()
           .addClass("hide");
       })
@@ -142,12 +144,12 @@ $(document).ready(function() {
     //     console.log(places[key].concepto);
     // });
     for (var key in places) {
-        var concepto = places[key].concepto;
-        var descripcion = places[key].descripcion;
-        var horario = places[key].horario;
-        var lugar = places[key].lugar;
+      var concepto = places[key].concepto;
+      var descripcion = places[key].descripcion;
+      var horario = places[key].horario;
+      var lugar = places[key].lugar;
 
-        showPlace(concepto, descripcion, horario, lugar);
+      showPlace(concepto, descripcion, horario, lugar);
     }
   });
 });

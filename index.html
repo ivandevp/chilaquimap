@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chilaquimap</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 
@@ -13,19 +14,37 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Chilaquimap</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a id="login" href="#">Iniciar sesión</a>
+                    <a class="login" href="#">Iniciar sesión</a>
                 </li>
                 <li class="hide">
                     <div class="chip">
-                        <img id="profile-photo" alt="Foto de perfil">
-                        <span id="username"></span>
+                        <img class="profile-photo" alt="Foto de perfil">
+                        <span class="username"></span>
                     </div>
 
                 </li>
                 <li class="hide">
-                    <a id="logout" href="#">Cerrar sesión</a>
+                    <a class="logout" href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <a class="login" href="#">Iniciar sesión</a>
+                </li>
+                <li class="hide">
+                    <div class="chip">
+                        <img class="profile-photo" alt="Foto de perfil">
+                        <span class="username"></span>
+                    </div>
+
+                </li>
+                <li class="hide">
+                    <a class="logout" href="#">Cerrar sesión</a>
                 </li>
             </ul>
         </div>
