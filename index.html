@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chilaquimap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Chilaquimap</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a id="login" href="#">Iniciar sesión</a>
+                </li>
+                <li class="hide">
+                    <div class="chip">
+                        <img id="profile-photo" alt="Foto de perfil">
+                        <span id="username"></span>
+                    </div>
+
+                </li>
+                <li class="hide">
+                    <a id="logout" href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="location-form" class="container hide">
+        <div class="row">
+            <h3>Agrega tu point:</h3>
+            <form id="form" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Chilaquiles" id="concepto" type="text" class="validate">
+                        <label for="concepto">¿Qué vende?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Chilaquiles" id="descripcion" type="text" class="validate">
+                        <label for="descripcion">Describe el lugar</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="7:00 am a 11:00 am" id="horario" type="text" class="validate">
+                        <label for="horario">¿En qué horario?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Url del iframe" id="lugar" type="text" class="validate">
+                        <label for="lugar">¿Dónde queda?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="waves-effect waves-light btn">Agregar</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+    <section id="lugares" style="margin-top: 1em;" class="container">
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
