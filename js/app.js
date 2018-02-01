@@ -143,6 +143,8 @@ $(document).ready(function() {
     // Object.keys(places).forEach(function(place) {
     //     console.log(places[key].concepto);
     // });
+    $("#lugares").empty();
+
     for (var key in places) {
       var concepto = places[key].concepto;
       var descripcion = places[key].descripcion;
