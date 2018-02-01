@@ -78,7 +78,7 @@ $(document).ready(function() {
   $("#login").click(function(e) {
     e.preventDefault();
 
-    var provider = new firebase.auth.FacebookAuthProvider();
+    var provider = new firebase.auth.GoogleAuthProvider();
 
     firebase
       .auth()
